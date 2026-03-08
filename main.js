@@ -4,7 +4,7 @@
 
 // --- GAS API Endpoint ---
 // デプロイ後に発行されたウェブアプリURLに書き換えてください。
-const API_URL = '';
+const API_URL = 'https://script.google.com/macros/s/AKfycbxf64EZn35oCFO-hxBWhQvW3TFwSFQ_19vO3-cylKBAJWPclf8X3INaNjL91bgpd8w2/exec';
 
 // --- Configuration ---
 const STORAGE_KEYS = {
