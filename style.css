@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-color: #050510;
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --primary: #8b5cf6;
+    --in-color: #3b82f6;
+    --out-color: #f43f5e;
+    --gold: #f59e0b;
+    --text: #ffffff;
+    --text-dim: #94a3b8;
+    --glass-blur: 16px;
+    --border: rgba(255, 255, 255, 0.08);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-image:
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.08) 0, transparent 40%),
+        radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.08) 0, transparent 40%);
+}
+
+.app-wrap {
+    width: 100%;
+    max-width: 480px;
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.main-clock h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+.main-clock p {
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* User Card */
+.user-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-row label {
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    font-weight: 600;
+}
+
+.form-row input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.6rem 1rem;
+    color: white;
+    text-align: right;
+    width: 160px;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-row input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.form-row input[readonly] {
+    opacity: 0.6;
+    background: transparent;
+    border: none;
+}
+
+/* Actions Grid */
+.action-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.tap-btn {
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2.5rem 1rem;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    transition: var(--transition);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.tap-btn i {
+    width: 32px;
+    height: 32px;
+    opacity: 0.9;
+}
+
+.tap-btn:active {
+    transform: scale(0.96) translateY(2px);
+    opacity: 0.85;
+}
+
+.in {
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+}
+
+.out {
+    background: linear-gradient(135deg, #e11d48, #f43f5e);
+}
+
+/* Completion Button */
+.completion-area {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.glow-btn {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    border: none;
+    background: linear-gradient(135deg, #d97706, #f59e0b);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 10px 40px -10px rgba(245, 158, 11, 0.3);
+    transition: var(--transition);
+}
+
+.glow-btn:active {
+    transform: scale(0.97);
+}
+
+.hint-text {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+}
+
+/* Status Indicator */
+.status-box {
+    margin-top: 1.5rem;
+    text-align: center;
+    min-height: 48px;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+/* Icons */
+.icon-brand {
+    color: var(--primary);
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.version {
+    color: var(--text-dim);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+}
+
+.copyright {
+    color: rgba(255, 255, 255, 0.2);
+    font-size: 0.7rem;
+}
+
+@media (max-width: 380px) {
+    .main-clock h1 {
+        font-size: 3rem;
+    }
+}

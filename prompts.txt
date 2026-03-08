@@ -1,0 +1,21 @@
+# Task 5 AI Interaction Log (prompts.txt)
+
+## 1. Planning & Spec Creation
+- **Prompt**: "研修課題５：出退勤打刻アプリ開発の仕様を整理し、必要なファイル構成を考えてください。"
+- **Action**: Created `spec.md` defining PWA requirements, sheet structure, and design goals.
+
+## 2. Frontend Implementation
+- **Prompt**: "スマートフォン向けに最適化された、打刻ボタンが大きなPWAアプリのUIを作成してください。プレミアムなデザインにしてください。"
+- **Action**: Built `index.html` and `style.css` using the "Outfit" font and Glassmorphism.
+
+## 3. Backend Implementation (GAS)
+- **Prompt**: "LINE Messaging APIとスプレッドシートを連携させるGASボットを作成してください。出勤・退勤の打刻と勤務時間計算、課題完了報告の通知機能が必要です。"
+- **Action**: Developed `gas-code.gs` with logic for row appending and duration calculation.
+
+## 4. PWA Integration
+- **Prompt**: "Service Workerとmanifest.jsonを生成し、オフラインキャッシュとホーム画面追加を可能にしてください。"
+- **Action**: Generated `manifest.json` and `sw.js`.
+
+## 5. Deployment & Push
+- **Prompt**: "GitHubにpushして、相手に送るURLを作成してください。"
+- **Action**: Executed git commands to push to `shn5` repository.

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI 勤怠打刻 v2.0</title>
+    <meta name="theme-color" content="#6366f1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icon.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+    <div class="app-wrap">
+        <header>
+            <div class="brand">
+                <i data-lucide="layers" class="icon-brand"></i>
+                <span>Task 5 Alpha</span>
+            </div>
+            <div class="main-clock">
+                <h1 id="clock-time">00:00:00</h1>
+                <p id="clock-date">2026/03/08 (Sun)</p>
+            </div>
+        </header>
+
+        <main>
+            <!-- User Control Card -->
+            <section class="user-card">
+                <div class="form-row">
+                    <label for="user-id">ID</label>
+                    <input type="text" id="user-id" value="user01" readonly>
+                </div>
+                <div class="form-row">
+                    <label for="user-name">氏名</label>
+                    <input type="text" id="user-name" placeholder="自分の名前を入力">
+                </div>
+            </section>
+
+            <!-- Action Grid -->
+            <section class="action-grid">
+                <button id="btn-in" class="tap-btn in">
+                    <i data-lucide="play-circle"></i>
+                    <span>出勤打刻</span>
+                </button>
+                <button id="btn-out" class="tap-btn out">
+                    <i data-lucide="stop-circle"></i>
+                    <span>退勤打刻</span>
+                </button>
+            </section>
+
+            <!-- Final Task Completion Button -->
+            <section class="completion-area">
+                <button id="btn-complete" class="glow-btn">
+                    <i data-lucide="send"></i>
+                    <span>🎉 課題完了報告を送信</span>
+                </button>
+                <p class="hint-text">完了ボタンはメンターへの最終通知用です。</p>
+            </section>
+
+            <!-- Status Indicator -->
+            <div id="status-display" class="status-box"></div>
+        </main>
+
+        <footer>
+            <div class="version">Build v2.1.0</div>
+            <div class="copyright">© 2026 AI Developer Team</div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        // PWA Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then(() => {
+                console.log('ServiceWorker registered');
+            }).catch(err => console.error('SW registration failed', err));
+        }
+
+        // Clock Update
+        function updateClock() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('ja-JP', { hour12: false });
+            const dateStr = now.toLocaleDateString('ja-JP', {
+                year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short'
+            });
+            document.getElementById('clock-time').textContent = timeStr;
+            document.getElementById('clock-date').textContent = dateStr;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
